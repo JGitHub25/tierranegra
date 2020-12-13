@@ -1,0 +1,102 @@
+@font-face {
+    font-family: Aller;
+    src: url(Aller.ttf);
+  }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(assets/Fondo2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    /* border: red 2px solid; */
+    height: 100%;
+}
+
+.logo {
+    width: 20%;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    /* border: green 2px solid; */
+    padding: 0 2%;
+    width: 20%;
+    height: 20% 
+}
+
+.btn-group-container {
+    display: flex;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    /* border: olive 2px solid; */
+    margin:0 2.5%;
+}
+
+.btn-container .btn-label {
+    display: inline-block;
+    font-family: Aller;
+    color: #FFFFFF;
+    margin: -200% 0% 0% -80%;
+    visibility: hidden;
+    font-size: 1.7vh;
+    transform: rotate(-90deg);
+}
+
+.btn-home:hover .btn-label {
+    visibility: visible;
+    /* opacity: 0.5; */
+}
+
+
+.btn-home {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    /* margin-right: 5%;     */
+}
+
+
+
+
+/* .btn-home:hover .btn-label {
+    opacity: 0.5;
+    visibility: visible;
+} */
+
+.artistas {
+    background-color: #9F48D9;
+
+}
+.noticias {
+    background-color: #48D995;
+
+}
+.releases {
+    background-color: #F28705;
+    
+}
+.nosotros {
+    background-color: #D94E4E;
+}
+
+
+
