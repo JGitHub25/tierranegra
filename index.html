@@ -1,39 +1,152 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Producciones Tierranegra</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="main-container">
-        <img class="logo" src="assets/logo-tierranegra-blanco.png" alt="">
-        <div class="menu-container">
-            <!-- <div class="btn-group-container"> -->
-                <div class="btn-container">
-                    <div class="btn-home artistas">
-                        <span class="btn-label">ARTISTAS</span>
-                    </div>
-                </div>
-                <div class="btn-container">
-                    <div class="btn-home noticias">
-                        <span class="btn-label">NOTICIAS</span>
-                    </div>
-                </div>
-                <div class="btn-container">
-                    <div class="btn-home releases">
-                        <span class="btn-label">RELEASES</span>
-                    </div>
-                </div>
-                <div class="btn-container">
-                    <div class="btn-home nosotros">
-                        <span class="btn-label">NOSOTROS</span>
-                    </div>
-                </div>
-            <!-- </div> -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- INICIO -->
+    <main class="inicio-container">
+      <img
+        class="logo-inicio"
+        src="assets/logo-tierranegra-blanco.png"
+        alt="Tierra Negra - Grabaciones"
+      />
+      <div class="dots-inicio-container">
+        <div class="dot-container">
+          <div class="dot-home dot-artistas">
+            <span class="dot-label">ARTISTAS</span>
+          </div>
         </div>
-    </div>
-    
-    
-</body>
+        <div class="dot-container">
+          <div class="dot-home dot-noticias">
+            <span class="dot-label">NOTICIAS</span>
+          </div>
+        </div>
+        <div class="dot-container">
+          <div class="dot-home dot-releases">
+            <span class="dot-label">RELEASES</span>
+          </div>
+        </div>
+        <div class="dot-container">
+          <div class="dot-home dot-nosotros">
+            <span class="dot-label">NOSOTROS</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- TOP NAVBAR -->
+    <header id="header" class="header">
+      <nav class="header__nav-pages">
+        <img
+          src="assets/logo-tierranegra-blanco.png"
+          alt=""
+          class="nav-pages__logo"
+        />
+        <a href="" class="nav-pages__links artistas">artistas</a
+        ><a href="" class="nav-pages__links noticias">noticias</a
+        ><a href="" class="nav-pages__links releases">releases</a
+        ><a href="" class="nav-pages__links nosotros">nosotros</a>
+      </nav>
+      <nav class="header__nav-inicio">
+        <button class="btn-inicio">
+          <a href="" class="nav-inicio__links artistas">inicio</a>
+        </button>
+        <form class="nav-inicio__search">
+          <input type="text" placeholder="Buscar" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <i class="icono-tienda fas fa-shopping-cart"></i>
+      </nav>
+    </header>
+
+    <!-- SIDE DOT NAVIGATION -->
+    <nav id="side-dot-navigation" class="side-dot-navigation">
+      <div class="side-navigation__vl"></div>
+      <span class="side-navigation__dot artistas"></span>
+      <span class="side-navigation__dot noticias"></span>
+      <span class="side-navigation__dot releases"></span>
+      <span class="side-navigation__dot nosotros"></span>
+      <div class="side-navigation__vl"></div>
+    </nav>
+
+    <!-- seccion general de ajuste -->
+    <section class="section">
+      <div class="section__top">
+        <div class="section__top-left"></div>
+        <div class="section__top-right"></div>
+      </div>
+      <div class="section__main">
+        <div class="section__main-left">
+          <h2 class="section__title">Título sección</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right"></div>
+      </div>
+      <div class="section__bottom">
+        <div class="section__bottom-left">
+          <div class="mas-info">
+            <a href="" class="mas-info__text">más info</a>
+          </div>
+        </div>
+        <div class="section__bottom-right">
+          <div class="bottom-right__left-box"></div>
+          <div class="bottom-right__right-box"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISTAS -->
+    <section class="section artistas">
+      <div class="section__top artistas">
+        <div class="section__top-left artistas"></div>
+        <div class="section__top-right artistas"></div>
+      </div>
+      <div class="section__main artistas">
+        <div class="section__main-left artistas">
+          <h2 class="section__title">Artistas</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right artistas"></div>
+      </div>
+      <div class="section__bottom artistas">
+        <div class="section__bottom-left artistas">
+          <div class="mas-info artistas">
+            <a href="" class="mas-info__text artistas">más info</a>
+          </div>
+        </div>
+        <div class="section__bottom-right artistas">
+          <div class="bottom-right__left-box artistas">
+            <div class="subtitle">
+              <span class="subtitle__number">01</span
+              ><span class="subtitle__name">título 1</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__right-box artistas"></div>
+        </div>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
 </html>
