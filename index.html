@@ -9,82 +9,109 @@
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- INICIO -->
-    <main class="inicio-container">
+    <main class="inicio-container" id="inicio">
       <img
         class="logo-inicio"
         src="assets/logo-tierranegra-blanco.png"
         alt="Tierra Negra - Grabaciones"
       />
       <div class="dots-inicio-container">
-        <div class="dot-container">
-          <div class="dot-home dot-artistas">
-            <span class="dot-label">ARTISTAS</span>
+        <a href="#artistas">
+          <div class="dot-container">
+            <div class="dot-home dot-artistas">
+              <span class="dot-label">ARTISTAS</span>
+            </div>
           </div>
-        </div>
-        <div class="dot-container">
-          <div class="dot-home dot-noticias">
-            <span class="dot-label">NOTICIAS</span>
+        </a>
+        <a href="#noticias">
+          <div class="dot-container">
+            <div class="dot-home dot-noticias">
+              <span class="dot-label">NOTICIAS</span>
+            </div>
           </div>
-        </div>
-        <div class="dot-container">
-          <div class="dot-home dot-releases">
-            <span class="dot-label">RELEASES</span>
+        </a>
+        <a href="#releases">
+          <div class="dot-container">
+            <div class="dot-home dot-releases">
+              <span class="dot-label">RELEASES</span>
+            </div>
           </div>
-        </div>
-        <div class="dot-container">
-          <div class="dot-home dot-nosotros">
-            <span class="dot-label">NOSOTROS</span>
+        </a>
+
+        <a href="#nosotros">
+          <div class="dot-container">
+            <div class="dot-home dot-nosotros">
+              <span class="dot-label">NOSOTROS</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </main>
     <!-- TOP NAVBAR -->
     <header id="header" class="header">
       <nav class="header__nav-pages">
-        <img
-          src="assets/logo-tierranegra-blanco.png"
-          alt=""
-          class="nav-pages__logo"
-        />
-        <a href="" class="nav-pages__links artistas">artistas</a
-        ><a href="" class="nav-pages__links noticias">noticias</a
-        ><a href="" class="nav-pages__links releases">releases</a
-        ><a href="" class="nav-pages__links nosotros">nosotros</a>
+        <a href="#inicio" class="nav-inicio__links logo inicio"
+          ><img
+            src="assets/logo-tierranegra-blanco.png"
+            alt=""
+            class="nav-pages__logo"
+        /></a>
+        <a href="#artistas" class="nav-pages__links texto artistas">artistas</a
+        ><a href="#noticias" class="nav-pages__links texto noticias">noticias</a
+        ><a href="#releases" class="nav-pages__links texto releases">releases</a
+        ><a href="#nosotros" class="nav-pages__links texto nosotros"
+          >nosotros</a
+        >
       </nav>
       <nav class="header__nav-inicio">
         <button class="btn-inicio">
-          <a href="" class="nav-inicio__links artistas">inicio</a>
+          <a href="#inicio" class="nav-inicio__links texto inicio">inicio</a>
         </button>
-        <form class="nav-inicio__search">
-          <input type="text" placeholder="Buscar" />
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <i class="icono-tienda fas fa-shopping-cart"></i>
+        <div class="nav-inicio-search-wrapper">
+          <div class="nav-inicio__search">
+            <input class="search-term" type="text" placeholder="" />
+            <button class="searchButton" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <a class="tienda" href="#">
+          <span class="material-icons icono-tienda"> shopping_cart </span>
+        </a>
       </nav>
     </header>
 
     <!-- SIDE DOT NAVIGATION -->
     <nav id="side-dot-navigation" class="side-dot-navigation">
       <div class="side-navigation__vl"></div>
-      <span class="side-navigation__dot artistas"></span>
-      <span class="side-navigation__dot noticias"></span>
-      <span class="side-navigation__dot releases"></span>
-      <span class="side-navigation__dot nosotros"></span>
+      <a href="#artistas"
+        ><span class="side-navigation__dot artistas"></span
+      ></a>
+      <a href="#noticias"><span class="side-navigation__dot noticias"></span></a
+      ><a href="#releases"
+        ><span class="side-navigation__dot releases"></span></a
+      ><a href="#nosotros"
+        ><span class="side-navigation__dot nosotros"></span
+      ></a>
       <div class="side-navigation__vl"></div>
     </nav>
 
-    <!-- seccion general de ajuste -->
-    <section class="section">
-      <div class="section__top">
-        <div class="section__top-left"></div>
-        <div class="section__top-right"></div>
+    <!-- seccion completa en HTML por so las moscas -->
+    <!-- <section class="section NOMBRE" id="NOMBRE">
+      <div class="section__top NOMBRE">
+        <div class="section__top-left NOMBRE"></div>
+        <div class="section__top-right NOMBRE"></div>
       </div>
-      <div class="section__main">
-        <div class="section__main-left">
-          <h2 class="section__title">Título sección</h2>
+      <div class="section__main NOMBRE">
+        <div class="section__main-left NOMBRE">
+          <h2 class="section__title">NOMBRE</h2>
           <p class="section__description">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
             totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
@@ -92,23 +119,178 @@
             repellat rerum repudiandae, voluptate dolorem.
           </p>
         </div>
-        <div class="section__main-right"></div>
-      </div>
-      <div class="section__bottom">
-        <div class="section__bottom-left">
-          <div class="mas-info">
-            <a href="" class="mas-info__text">más info</a>
+        <div class="section__main-right NOMBRE">
+          <div class="dots-container">
+            <span class="dot active" data-orden="1"></span>
+            <span class="dot" data-orden="2"></span>
+            <span class="dot" data-orden="3"></span>
+            <span class="dot" data-orden="4"></span>
+            <span class="dot" data-orden="5"></span>
+            <span class="dot" data-orden="6"></span>
+            <span class="dot" data-orden="7"></span>
+            <span class="dot" data-orden="8"></span>
+            <span class="dot" data-orden="9"></span>
+          </div>
+          <div class="slider-container">
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=1"
+              alt="Imagen 1"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=2"
+              alt="Imagen 2"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=3"
+              alt="Imagen 3"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=4"
+              alt="Imagen 4"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=5"
+              alt="Imagen 5"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=6"
+              alt="Imagen 6"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=7"
+              alt="Imagen 7"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=8"
+              alt="Imagen 8"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=9"
+              alt="Imagen 9"
+            />
+          </div>
+          <div class="btn-container NOMBRE">
+            <button type="button" class="prevBtn">
+              <span class="material-icons"> chevron_left </span>
+            </button>
+            <button type="button" class="nextBtn active">
+              <span class="material-icons"> chevron_right </span>
+            </button>
           </div>
         </div>
-        <div class="section__bottom-right">
-          <div class="bottom-right__left-box"></div>
-          <div class="bottom-right__right-box"></div>
+      </div>
+      <div class="section__bottom NOMBRE">
+        <div class="section__bottom-left NOMBRE">
+          <a href="#" class="mas-info__text NOMBRE"
+            ><div class="mas-info NOMBRE">más info</div></a
+          >
+        </div>
+        <div class="section__bottom-right NOMBRE">
+          <div class="bottom-right__info-box active" data-orden="1">
+            <div class="subtitle">
+              <span class="subtitle__number">01</span
+              ><span class="subtitle__name">título 1</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="2">
+            <div class="subtitle">
+              <span class="subtitle__number">02</span
+              ><span class="subtitle__name">título 2</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="3">
+            <div class="subtitle">
+              <span class="subtitle__number">03</span
+              ><span class="subtitle__name">título 3</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="4">
+            <div class="subtitle">
+              <span class="subtitle__number">04</span
+              ><span class="subtitle__name">título 4</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="5">
+            <div class="subtitle">
+              <span class="subtitle__number">05</span
+              ><span class="subtitle__name">título 5</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="6">
+            <div class="subtitle">
+              <span class="subtitle__number">06</span
+              ><span class="subtitle__name">título 6</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="7">
+            <div class="subtitle">
+              <span class="subtitle__number">07</span
+              ><span class="subtitle__name">título 7</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="8">
+            <div class="subtitle">
+              <span class="subtitle__number">08</span
+              ><span class="subtitle__name">título 8</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="9">
+            <div class="subtitle">
+              <span class="subtitle__number">09</span
+              ><span class="subtitle__name">título 9</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ARTISTAS -->
-    <section class="section artistas">
+    <section class="section artistas" id="artistas">
       <div class="section__top artistas">
         <div class="section__top-left artistas"></div>
         <div class="section__top-right artistas"></div>
@@ -127,12 +309,113 @@
       </div>
       <div class="section__bottom artistas">
         <div class="section__bottom-left artistas">
-          <div class="mas-info artistas">
-            <a href="" class="mas-info__text artistas">más info</a>
+          <a href="#destacado" class="mas-info__text artistas"
+            ><div class="mas-info artistas">más info</div></a
+          >
+        </div>
+        <div class="section__bottom-right artistas"></div>
+      </div>
+    </section>
+
+    <!-- DESTACADO -->
+    <section class="section destacado" id="destacado">
+      <div class="section__top destacado">
+        <div class="section__top-left destacado"></div>
+        <div class="section__top-right destacado"></div>
+      </div>
+      <div class="section__main destacado">
+        <div class="section__main-left destacado">
+          <h2 class="section__title">Artistas</h2>
+          <div class="line"><hr /></div>
+          <h3 class="artist-name">Panela Sound</h3>
+          <div class="genero">
+            <span class="genero__icon material-icons"> album </span>
+            <span class="genero__texto">Electrónica Latina / World Music</span>
+          </div>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right destacado">
+          <div class="dots-container">
+            <span class="dot active" data-orden="1"></span>
+            <span class="dot" data-orden="2"></span>
+            <span class="dot" data-orden="3"></span>
+            <span class="dot" data-orden="4"></span>
+            <span class="dot" data-orden="5"></span>
+            <span class="dot" data-orden="6"></span>
+            <span class="dot" data-orden="7"></span>
+            <span class="dot" data-orden="8"></span>
+            <span class="dot" data-orden="9"></span>
+          </div>
+          <div class="slider-container">
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=1"
+              alt="Imagen 1"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=2"
+              alt="Imagen 2"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=3"
+              alt="Imagen 3"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=4"
+              alt="Imagen 4"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=5"
+              alt="Imagen 5"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=6"
+              alt="Imagen 6"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=7"
+              alt="Imagen 7"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=8"
+              alt="Imagen 8"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=9"
+              alt="Imagen 9"
+            />
+          </div>
+          <div class="btn-container destacado">
+            <button type="button" class="prevBtn">
+              <span class="material-icons"> chevron_left </span>
+            </button>
+            <button type="button" class="nextBtn active">
+              <span class="material-icons"> chevron_right </span>
+            </button>
           </div>
         </div>
-        <div class="section__bottom-right artistas">
-          <div class="bottom-right__left-box artistas">
+      </div>
+      <div class="section__bottom destacado">
+        <div class="section__bottom-left destacado">
+          <a href="#releases" class="mas-info__text destacado"
+            ><div class="mas-info destacado">releases</div></a
+          >
+        </div>
+        <div class="section__bottom-right destacado">
+          <div class="bottom-right__info-box active">
             <div class="subtitle">
               <span class="subtitle__number">01</span
               ><span class="subtitle__name">título 1</span>
@@ -142,11 +425,359 @@
               excepturi eveniet alias expedita repellendus vel!
             </p>
           </div>
-          <div class="bottom-right__right-box artistas"></div>
+          <div class="bottom-right__info-box active">
+            <div class="social-links">
+              <a href=""><i class="fab fa-spotify"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a
+              ><a href=""><i class="fab fa-facebook-f"></i></a
+              ><a href=""><i class="fab fa-youtube"></i></a
+              ><a href=""><i class="fab fa-bandcamp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICIAS -->
+    <section class="section noticias" id="noticias">
+      <div class="section__top noticias">
+        <div class="section__top-left noticias"></div>
+        <div class="section__top-right noticias"></div>
+      </div>
+      <div class="section__main noticias">
+        <div class="section__main-left noticias">
+          <h2 class="section__title">Noticias</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right noticias"></div>
+      </div>
+      <div class="section__bottom noticias">
+        <div class="section__bottom-left noticias">
+          <a href="#" class="mas-info__text noticias"
+            ><div class="mas-info noticias">más info</div></a
+          >
+        </div>
+        <div class="section__bottom-right noticias"></div>
+      </div>
+    </section>
+
+    <!-- RELEASES -->
+    <section class="section releases" id="releases">
+      <div class="section__top releases">
+        <div class="section__top-left releases"></div>
+        <div class="section__top-right releases"></div>
+      </div>
+      <div class="section__main releases">
+        <div class="section__main-left releases">
+          <h2 class="section__title">Releases</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right releases"></div>
+      </div>
+      <div class="section__bottom releases">
+        <div class="section__bottom-left releases">
+          <a href="#" class="mas-info__text releases"
+            ><div class="mas-info releases">más info</div></a
+          >
+        </div>
+        <div class="section__bottom-right releases"></div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="section nosotros" id="nosotros">
+      <div class="section__top nosotros">
+        <div class="section__top-left nosotros"></div>
+        <div class="section__top-right nosotros"></div>
+      </div>
+      <div class="section__main nosotros">
+        <div class="section__main-left nosotros">
+          <h2 class="section__title">Nosotros</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right nosotros">
+          <div class="dots-container">
+            <span class="dot active" data-orden="1"></span>
+            <span class="dot" data-orden="2"></span>
+            <span class="dot" data-orden="3"></span>
+            <span class="dot" data-orden="4"></span>
+            <span class="dot" data-orden="5"></span>
+            <span class="dot" data-orden="6"></span>
+            <span class="dot" data-orden="7"></span>
+            <span class="dot" data-orden="8"></span>
+            <span class="dot" data-orden="9"></span>
+          </div>
+          <div class="slider-container">
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=1"
+              alt="Imagen 1"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=2"
+              alt="Imagen 2"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=3"
+              alt="Imagen 3"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=4"
+              alt="Imagen 4"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=5"
+              alt="Imagen 5"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=6"
+              alt="Imagen 6"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=7"
+              alt="Imagen 7"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=8"
+              alt="Imagen 8"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=9"
+              alt="Imagen 9"
+            />
+          </div>
+          <div class="btn-container nosotros">
+            <button type="button" class="prevBtn">
+              <span class="material-icons"> chevron_left </span>
+            </button>
+            <button type="button" class="nextBtn active">
+              <span class="material-icons"> chevron_right </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="section__bottom nosotros">
+        <div class="section__bottom-left nosotros">
+          <a href="#contacto" class="mas-info__text nosotros"
+            ><div class="mas-info nosotros">contactos</div></a
+          >
+        </div>
+        <div class="section__bottom-right nosotros">
+          <div class="bottom-right__info-box active" data-orden="1">
+            <div class="subtitle">
+              <span class="subtitle__number">01</span
+              ><span class="subtitle__name">título 1</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="2">
+            <div class="subtitle">
+              <span class="subtitle__number">02</span
+              ><span class="subtitle__name">título 2</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="3">
+            <div class="subtitle">
+              <span class="subtitle__number">03</span
+              ><span class="subtitle__name">título 3</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="4">
+            <div class="subtitle">
+              <span class="subtitle__number">04</span
+              ><span class="subtitle__name">título 4</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="5">
+            <div class="subtitle">
+              <span class="subtitle__number">05</span
+              ><span class="subtitle__name">título 5</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="6">
+            <div class="subtitle">
+              <span class="subtitle__number">06</span
+              ><span class="subtitle__name">título 6</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="7">
+            <div class="subtitle">
+              <span class="subtitle__number">07</span
+              ><span class="subtitle__name">título 7</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="8">
+            <div class="subtitle">
+              <span class="subtitle__number">08</span
+              ><span class="subtitle__name">título 8</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="9">
+            <div class="subtitle">
+              <span class="subtitle__number">09</span
+              ><span class="subtitle__name">título 9</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section contacto" id="contacto">
+      <div class="section__top contacto">
+        <div class="section__top-left contacto"></div>
+        <div class="section__top-right contacto"></div>
+      </div>
+      <div class="section__main contacto">
+        <div class="section__main-left contacto">
+          <h2 class="section__title">Contacto</h2>
+          <p class="section__description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+            totam deleniti sunt debitis fuga reprehenderit nam modi dolore nihil
+            suscipit ratione architecto doloremque perspiciatis deserunt
+            repellat rerum repudiandae, voluptate dolorem.
+          </p>
+        </div>
+        <div class="section__main-right contacto">
+          <div class="dots-container">
+            <span class="dot active" data-orden="1"></span>
+            <span class="dot" data-orden="2"></span>
+            <span class="dot" data-orden="3"></span>
+            <span class="dot" data-orden="4"></span>
+          </div>
+          <div class="slider-container">
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=1"
+              alt="Imagen 1"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=2"
+              alt="Imagen 2"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=3"
+              alt="Imagen 3"
+            />
+            <img
+              class="slide"
+              src="https://picsum.photos/300/300?grayscale&random=4"
+              alt="Imagen 4"
+            />
+          </div>
+          <div class="btn-container contacto">
+            <button type="button" class="prevBtn">
+              <span class="material-icons"> chevron_left </span>
+            </button>
+            <button type="button" class="nextBtn active">
+              <span class="material-icons"> chevron_right </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="section__bottom contacto">
+        <div class="section__bottom-left contacto">
+          <a href="#" class="mas-info__text contacto"
+            ><div class="mas-info contacto">más info</div></a
+          >
+        </div>
+        <div class="section__bottom-right contacto">
+          <div class="bottom-right__info-box active" data-orden="1">
+            <div class="subtitle">
+              <span class="subtitle__number">01</span
+              ><span class="subtitle__name">redes sociales</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="2">
+            <div class="subtitle">
+              <span class="subtitle__number">02</span
+              ><span class="subtitle__name">título 2</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
+          <div class="bottom-right__info-box" data-orden="3">
+            <div class="subtitle">
+              <span class="subtitle__number">03</span
+              ><span class="subtitle__name">título 3</span>
+            </div>
+            <p class="box-description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              excepturi eveniet alias expedita repellendus vel!
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <script src="app.js"></script>
+    <script src="contenido.js"></script>
+    <script src="sliders.js"></script>
   </body>
 </html>
