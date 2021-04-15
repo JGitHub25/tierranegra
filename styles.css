@@ -13,20 +13,9 @@ html {
 
 /*
 =============== 
-Variables
+FONTS
 ===============
 */
-:root {
-  --color-1: #f28705;
-  --color-2: #9f48d9;
-  --color-3: #48d995;
-  --color-4: #d94e4e;
-
-  --fondo-1: url(assets/Fondo1.png);
-  --fondo-2: url(assets/Fondo2.png);
-}
-
-/* FONTS */
 @font-face {
   font-family: Aller;
   src: url(assets/aller-typo/Aller.ttf);
@@ -62,6 +51,30 @@ Variables
   src: url(assets/aller-typo/AllerDisplay.ttf);
 }
 
+/*
+=============== 
+Variables
+===============
+
+*/
+:root {
+  --color-1: #f28705;
+  --color-2: #9f48d9;
+  --color-3: #48d995;
+  --color-4: #d94e4e;
+
+  --fondo-1: url(assets/Fondo1.png);
+  --fondo-2: url(assets/Fondo2.png);
+
+  --font: Aller;
+  --font-light: "Aller light";
+  --font-bold-italic: "Aller bold italic";
+  --font-italic: "Aller italic";
+  --font-light-italic: "Aller light italic";
+  --font-regular: "Aller regular";
+  --font-display: "Aller display";
+}
+
 /*================================SCROLL================================*/
 html {
   scroll-snap-type: y proximity;
@@ -76,19 +89,28 @@ body {
 .section {
   scroll-snap-align: start;
 }
+
 /*================================ESTILOS COMUNES================================*/
+
+/* ======Layout de cada sección. */
+
 .section {
   height: 100vh;
   background-image: var(--fondo-1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* overflow: hidden; */
 }
 
+/*Section top. */
 .section__top {
   height: 15%;
   display: flex;
+}
+
+.section__top-left {
+  height: 100%;
+  width: 50%;
 }
 
 .section__top-right {
@@ -97,25 +119,15 @@ body {
   mix-blend-mode: screen;
 }
 
-.section__top-left {
-  height: 100%;
-  width: 50%;
-}
-
+/*Section main. */
 .section__main {
   height: 60%;
   display: flex;
 }
 
-.section__main-right {
-  height: 100%;
-  width: 60%;
-}
-
 .section__main-left {
   height: 100%;
   width: 40%;
-
   padding-left: 10%;
   display: flex;
   flex-direction: column;
@@ -129,7 +141,7 @@ body {
 }
 
 .section__description {
-  font-family: Aller, sans-serif;
+  font-family: var(--font), sans-serif;
   font-size: 16px;
   text-align: justify;
   color: #818181;
@@ -137,6 +149,68 @@ body {
   line-height: 1.3rem;
 }
 
+.section__main-right {
+  height: 100%;
+  width: 60%;
+  position: relative; /*Para ubicar los botones en la parte exactamente inferior.*/
+}
+
+.slider-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 0;
+}
+
+.prevBtn,
+.nextBtn {
+  background-color: white;
+  border: none;
+  border-radius: 6%;
+  padding: 0 0;
+  cursor: pointer;
+}
+
+.prevBtn .material-icons,
+.nextBtn .material-icons {
+  font-size: 40px;
+}
+
+.dots-container {
+  text-align: end;
+  padding: 2% 10%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: dimgrey;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/*Section bottom. */
 .section__bottom {
   height: 25%;
   display: flex;
@@ -159,7 +233,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
-  font-family: Aller, sans-serif;
+  font-family: var(--font), sans-serif;
   font-size: 20px;
   color: #818181;
 }
@@ -167,19 +241,19 @@ body {
 .section__bottom-right {
   height: 100%;
   width: 50%;
-
-  display: flex;
+  position: relative;
+  overflow: hidden;
 }
 
-.bottom-right__left-box {
+.bottom-right__info-box {
   width: 50%;
+  height: 100%;
+  background-color: gray;
   mix-blend-mode: screen;
   padding: 5% 7%;
-}
-
-.bottom-right__right-box {
-  width: 50%;
-  mix-blend-mode: screen;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .subtitle {
@@ -189,21 +263,21 @@ body {
 }
 
 span.subtitle__number {
-  font-family: "Aller regular";
+  font-family: var(--font-regular);
   font-size: 1.3rem;
   border-bottom: aliceblue solid 2px;
 }
 
 span.subtitle__name {
-  font-family: "Aller";
-  font-variant: small-caps;
+  font-family: var(--font);
+  font-variant: all-petite-caps;
   font-size: 1.5rem;
   padding-left: 2%;
   color: white;
 }
 
 p.box-description {
-  font-family: "Aller regular";
+  font-family: var(--font-regular);
   font-size: 1.1rem;
 }
 
@@ -211,23 +285,16 @@ p.box-description {
 .header {
   height: 15vh;
   width: 100vw;
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   background-color: transparent;
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
+  transition: display 300ms ease-in-out;
+  z-index: 2;
 }
 
 .header-visible {
-  opacity: 1;
-}
-
-.header a {
-  font-family: Aller, sans-serif;
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
+  display: flex;
 }
 
 .header__nav-pages {
@@ -237,15 +304,43 @@ p.box-description {
   justify-content: space-evenly;
 }
 
+.header a.logo {
+  display: contents;
+}
+
 .nav-pages__logo {
   width: 12%;
+}
+
+.header a.texto {
+  font-family: var(--font), sans-serif;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-pages__links.texto.artistas:hover {
+  color: var(--color-1);
+}
+
+.nav-pages__links.texto.noticias:hover {
+  color: var(--color-2);
+}
+
+.nav-pages__links.texto.releases:hover {
+  color: var(--color-3);
+}
+
+.nav-pages__links.texto.nosotros:hover {
+  color: var(--color-4);
 }
 
 .header__nav-inicio {
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-right: 6vw;
 }
 
@@ -256,29 +351,63 @@ p.box-description {
   border-radius: 16px;
 }
 
-.icono-tienda {
-  font-size: 2rem;
+.nav-inicio__links.texto.inicio:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-inicio__search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.search-term {
+  font-family: var(--font-regular);
+  font-size: 16px;
+  border: 1px solid black;
+  border-right: none;
+  padding: 5px;
+  border-radius: 16px 0 0 16px;
+  color: var(--color-2);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid black;
+  background: white;
+  text-align: center;
+  color: var(--color-2);
+  border-radius: 0 16px 16px 0;
+  border-left: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.material-icons.icono-tienda {
   color: white;
+  font-size: 2rem;
   background-color: rgba(122, 122, 122, 0.5);
   border-radius: 50%;
-  border: solid 2px var(--color-1);
+  border: solid 1px white;
+  padding: 8px;
 }
+
 /*================================SIDE DOT NAVIGATION================================*/
 .side-dot-navigation {
   height: 100vh;
   width: 12vw;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   position: fixed;
   top: 10%;
-  opacity: 0;
-  transition: opacity 400ms ease-in-out;
+  transition: display 400ms ease-in-out;
   padding: 7vh 0;
 }
 
 .side-dot-navigation-visible {
-  opacity: 1;
+  display: flex;
 }
 
 .side-navigation__vl {
@@ -287,15 +416,21 @@ p.box-description {
   background-color: rgb(131 131 131);
 }
 
+.side-dot-navigation a {
+  display: flex;
+}
+
 .side-navigation__dot {
-  cursor: pointer;
   height: 2vh;
   width: 2vh;
   margin: 0.5vh 0;
-
   border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
 
-  transition: background-color 0.6s ease;
+.side-navigation__dot:hover {
+  opacity: 0.5;
+  border: 1px solid white;
 }
 
 .side-navigation__dot.artistas {
@@ -313,6 +448,7 @@ p.box-description {
 .side-navigation__dot.nosotros {
   background-color: var(--color-4);
 }
+
 /*================================INICIO================================*/
 .inicio-container {
   display: flex;
@@ -325,7 +461,6 @@ p.box-description {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  /* overflow: hidden; */
 }
 
 .logo-inicio {
@@ -335,33 +470,35 @@ p.box-description {
 .dots-inicio-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-end;
   padding: 0 2%;
   width: 20%;
   height: 20%;
 }
 
+.dots-inicio-container a {
+  margin: 0 2.5%;
+}
+
 .dot-container {
   display: flex;
   flex-direction: row;
-
-  margin: 0 2.5%;
 }
 
 .dot-container .dot-label {
   display: inline-block;
-  font-family: Aller;
+  font-family: var(--font);
   color: #ffffff;
-  margin: -200% 0% 0% -80%;
-  visibility: hidden;
-  font-size: 1.7vh;
+  margin: -300% 0% 0% -180%;
+  opacity: 0;
+  font-size: 3vh;
   transform: rotate(-90deg);
+  transition: opacity 0.5s ease-out;
 }
 
 .dot-home:hover .dot-label {
-  visibility: visible;
-  /* opacity: 0.5; */
+  opacity: 1;
 }
 
 .dot-home {
@@ -383,27 +520,187 @@ p.box-description {
   background-color: var(--color-4);
 }
 
-/*================================ARTISTAS================================*/
-.section__top-right.artistas {
+/*================================ARTISTAS y DESTACADO================================*/
+.section__top-right.artistas,
+.section__top-right.destacado {
   background-color: var(--color-1);
 }
 
-.section__title {
+.artistas .section__title,
+.destacado .section__title {
   color: var(--color-1);
 }
 
-.section__main-right.artistas {
-  background-color: white;
-}
-
-.mas-info.artistas {
+.mas-info.artistas,
+.mas-info.destacado {
   border-bottom: 4px solid var(--color-1);
 }
 
-.bottom-right__left-box.artistas {
+.artistas .dot.active,
+.destacado .dot.active {
+  background-color: var(--color-1);
+}
+
+.artistas .bottom-right__info-box:hover,
+.artistas .bottom-right__info-box.active,
+.destacado .bottom-right__info-box:hover,
+.destacado .bottom-right__info-box.active {
+  background-color: var(--color-1);
+}
+
+.artistas .prevBtn.active,
+.artistas .nextBtn.active,
+.artistas .prevBtn:hover,
+.artistas .nextBtn:hover,
+.destacado .prevBtn.active,
+.destacado .nextBtn.active,
+.destacado .prevBtn:hover,
+.destacado .nextBtn:hover {
+  background-color: var(--color-1);
+}
+
+.destacado .line {
+  padding-right: 10vw;
+}
+
+.destacado hr {
+  height: 2px;
+  background-color: white;
+  border-width: 0px;
+}
+
+.destacado .artist-name {
+  font-family: sans-serif;
+  font-size: 40px;
+  color: white;
+  padding-bottom: 30px;
+}
+
+.destacado .genero {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.destacado .genero__icon {
+  font-size: 2rem;
+  color: var(--color-1);
+  padding-right: 10px;
+}
+
+.destacado .genero__texto {
+  font-family: var(--font-italic);
+  font-size: 1rem;
+  color: white;
+}
+
+.destacado .bottom-right__info-box {
+  cursor: initial;
+}
+
+.destacado .social-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.destacado .social-links i {
+  color: white;
+  font-size: 2rem;
+  padding: 15px;
+}
+/*================================NOTICIAS================================*/
+.section__top-right.noticias {
+  background-color: var(--color-2);
+}
+
+.noticias .section__title {
+  color: var(--color-2);
+}
+
+.mas-info.noticias {
+  border-bottom: 4px solid var(--color-2);
+}
+
+.noticias .dot.active {
+  background-color: var(--color-2);
+}
+
+.noticias .bottom-right__info-box:hover,
+.noticias .bottom-right__info-box.active {
+  background-color: var(--color-2);
+}
+
+.noticias .prevBtn.active,
+.noticias .nextBtn.active,
+.noticias .prevBtn:hover,
+.noticias .nextBtn:hover {
+  background-color: var(--color-2);
+}
+
+/*================================RELEASES================================*/
+.section__top-right.releases {
+  background-color: var(--color-3);
+}
+
+.releases .section__title {
+  color: var(--color-3);
+}
+
+.mas-info.releases {
+  border-bottom: 4px solid var(--color-3);
+}
+
+.releases .dot.active {
+  background-color: var(--color-3);
+}
+
+.releases .bottom-right__info-box:hover,
+.releases .bottom-right__info-box.active {
+  background-color: var(--color-3);
+}
+
+.releases .prevBtn.active,
+.releases .nextBtn.active,
+.releases .prevBtn:hover,
+.releases .nextBtn:hover {
+  background-color: var(--color-3);
+}
+
+/*================================NOSOTROS y CONTACTO================================*/
+.section__top-right.nosotros,
+.section__top-right.contacto {
   background-color: var(--color-4);
 }
 
-.bottom-right__right-box.artistas {
-  background-color: var(--color-3);
+.nosotros .section__title,
+.contacto .section__title {
+  color: var(--color-4);
+}
+
+.mas-info.nosotros,
+.mas-info.contacto {
+  border-bottom: 4px solid var(--color-4);
+}
+
+.nosotros .dot.active,
+.contacto .dot.active {
+  background-color: var(--color-4);
+}
+
+.nosotros .bottom-right__info-box:hover,
+.nosotros .bottom-right__info-box.active,
+.contacto .bottom-right__info-box:hover,
+.contacto .bottom-right__info-box.active {
+  background-color: var(--color-4);
+}
+
+.nosotros .prevBtn.active,
+.nosotros .nextBtn.active,
+.nosotros .prevBtn:hover,
+.nosotros .nextBtn:hover,
+.contacto .prevBtn.active,
+.contacto .nextBtn.active,
+.contacto .prevBtn:hover,
+.contacto .nextBtn:hover {
+  background-color: var(--color-4);
 }

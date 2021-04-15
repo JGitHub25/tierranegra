@@ -2,7 +2,7 @@
 let viewportHeight = window.innerHeight;
 
 window.onscroll = () => {
-  if (window.pageYOffset > (viewportHeight / 4) * 3) {
+  if (window.pageYOffset > (viewportHeight / 5) * 4) {
     document.getElementById("header").classList.add("header-visible");
   } else {
     document.getElementById("header").classList.remove("header-visible");
