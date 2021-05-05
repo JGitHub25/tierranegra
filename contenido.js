@@ -78,7 +78,7 @@ const artistas = [
 const noticias = [
   {
     id: 1,
-    nombre: "Noticias",
+    nombre: "Circulart 2020",
     descripcion:
       "Fam quinoa tattooed listicle, keytar distillery you probably haven't heard of them synth. Tofu wolf craft beer organic hell of paleo.",
     imagenes: [
@@ -87,7 +87,7 @@ const noticias = [
   },
   {
     id: 2,
-    nombre: "Efemérides",
+    nombre: "Agenda 2021",
     descripcion:
       "Blog hexagon lyft ugh brunch taxidermy. Intelligentsia four loko chillwave, kale chips brooklyn yr pitchfork mixtape.",
     imagenes: [
@@ -108,6 +108,15 @@ const noticias = [
 const releases = [
   {
     id: 1,
+    nombre: "Sereno",
+    descripcion:
+      "Jean shorts mumblecore dreamcatcher migas la croix truffaut cornhole gochujang hot chicken. Cold-pressed kickstarter stumptown.",
+    imagenes: [
+      "https://is5-ssl.mzstatic.com/image/thumb/Music124/v4/c9/d9/6e/c9d96eaa-5bff-e81d-673f-4c7c4365e819/195079999338.jpg/1200x630cw.png",
+    ],
+  },
+  {
+    id: 2,
     nombre: "Release",
     descripcion:
       "Jean shorts mumblecore dreamcatcher migas la croix truffaut cornhole gochujang hot chicken. Cold-pressed kickstarter stumptown.",
@@ -116,7 +125,7 @@ const releases = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     nombre: "Sencillo",
     descripcion:
       "Fam quinoa tattooed listicle, keytar distillery you probably haven't heard of them synth. Tofu wolf craft beer organic hell of paleo.",
@@ -125,7 +134,7 @@ const releases = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     nombre: "EP",
     descripcion:
       "Art party taxidermy four dollar toast, lo-fi hashtag semiotics microdosing fanny pack photo booth. Polaroid drinking vinegar hell.",
@@ -135,6 +144,7 @@ const releases = [
   },
 ];
 
+//Esta función inserta el contenido de los objetos de arriba en las distintas secciones de la página.
 function insertarContenidoSeccion(array, nombreClase) {
   function crearDots(arr) {
     let dots = "";
@@ -181,7 +191,7 @@ function insertarContenidoSeccion(array, nombreClase) {
 
   function crearBottomRight() {
     let sectionBottomRight = array.map(function (item) {
-      return `<div class="bottom-right__info-box active" data-orden="${item.id}">
+      return `<div class="bottom-right__info-box active landscape" data-orden="${item.id}">
             <div class="subtitle">
               <span class="subtitle__number">0${item.id}</span
               ><span class="subtitle__name">${item.nombre}</span>
@@ -192,10 +202,25 @@ function insertarContenidoSeccion(array, nombreClase) {
           </div>`;
     });
     sectionBottomRight = sectionBottomRight.join("");
+
+    let sectionBottomRightResponsive = array.map(function (item) {
+      return `<div class="bottom-right__info-box active portrait" data-orden="${item.id}">
+            <div class="subtitle">
+              <span class="subtitle__number">0${item.id}</span
+              ><span class="subtitle__name">${item.nombre}</span>
+            </div>
+            <p class="box-description">
+              ${item.descripcion}
+            </p>
+          </div>`;
+    });
+    sectionBottomRightResponsive = sectionBottomRightResponsive.join("");
+
     let targetBottomRight = document.querySelector(
       `.section__bottom-right.${nombreClase}`
     );
-    targetBottomRight.innerHTML = sectionBottomRight;
+    targetBottomRight.innerHTML =
+      sectionBottomRight + sectionBottomRightResponsive;
   }
 
   crearMainRight();
