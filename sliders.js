@@ -1,5 +1,5 @@
 //=============Función para desapilar las slides de los sliders.
-function deStack(images, boxes) {
+function deStack(images, boxes, boxesResponsive) {
   function deStackImages(slideImagen) {
     slideImagen.forEach(function (slide, index) {
       slide.style.left = `${index * 100}%`;
@@ -13,10 +13,28 @@ function deStack(images, boxes) {
     });
   }
   deStackInfobox(boxes);
+
+  function deStackInfoboxResp(infoBoxesResp) {
+    if (infoBoxesResp === undefined) {
+      return;
+    }
+
+    infoBoxesResp.forEach(function (slide, index) {
+      slide.style.left = `${index * 100}%`;
+    });
+  }
+  deStackInfoboxResp(boxesResponsive);
 }
 
 //=============Función del funcionamiento de los sliders.
-function funcionamientoCompletoSliders(images, boxes, dots, btnPrev, btnNext) {
+function funcionamientoCompletoSliders(
+  images,
+  boxes,
+  dots,
+  btnPrev,
+  btnNext,
+  boxesResp
+) {
   let contadorPosicion = 0;
 
   //Las helper function.
@@ -39,7 +57,7 @@ function funcionamientoCompletoSliders(images, boxes, dots, btnPrev, btnNext) {
     });
   }
 
-  function estadoActivoBoxesDots(infoBoxes, slideDots) {
+  function estadoActivoBoxesDots(infoBoxes, slideDots, infoBoxesResp) {
     function quitarYponerClase(elemento) {
       if (!(elemento.dataset.orden == contadorPosicion + 1)) {
         elemento.classList.remove("active");
@@ -49,6 +67,10 @@ function funcionamientoCompletoSliders(images, boxes, dots, btnPrev, btnNext) {
     }
 
     infoBoxes.forEach(function (elem) {
+      quitarYponerClase(elem);
+    });
+
+    infoBoxesResp.forEach(function (elem) {
       quitarYponerClase(elem);
     });
 
@@ -71,32 +93,39 @@ function funcionamientoCompletoSliders(images, boxes, dots, btnPrev, btnNext) {
   //Las main function (lo que se ejecuta al dar click).
   function clickDotsOBoxes(e) {
     contadorBoxesDots(e);
-    estadoActivoBoxesDots(boxes, dots);
+    estadoActivoBoxesDots(boxes, dots, boxesResp);
     estadoActivoBtns();
     moverSlides(images);
     moverSlides(boxes);
+    moverSlides(boxesResp);
   }
 
   function clickBotonPrev() {
     contadorPosicion--;
     limiteContadorBotones();
-    estadoActivoBoxesDots(boxes, dots);
+    estadoActivoBoxesDots(boxes, dots, boxesResp);
     estadoActivoBtns();
     moverSlides(images);
     moverSlides(boxes);
+    moverSlides(boxesResp);
   }
 
   function clickBotonNext() {
     contadorPosicion++;
     limiteContadorBotones();
-    estadoActivoBoxesDots(boxes, dots);
+    estadoActivoBoxesDots(boxes, dots, boxesResp);
     estadoActivoBtns();
     moverSlides(images);
     moverSlides(boxes);
+    moverSlides(boxesResp);
   }
 
   //Los event listeners.
   boxes.forEach(function (elemento) {
+    elemento.addEventListener("click", clickDotsOBoxes);
+  });
+
+  boxesResp.forEach(function (elemento) {
     elemento.addEventListener("click", clickDotsOBoxes);
   });
 
@@ -113,14 +142,17 @@ function funcionamientoCompletoSliders(images, boxes, dots, btnPrev, btnNext) {
 //elementos Artistas
 const slidesImagesArtistas = document.querySelectorAll(".artistas .slide");
 const slidesBoxesArtistas = document.querySelectorAll(
-  ".artistas .bottom-right__info-box"
+  ".artistas .bottom-right__info-box.landscape"
+);
+const slidesBoxesArtistasResp = document.querySelectorAll(
+  ".artistas .bottom-right__info-box.portrait"
 );
 const dotsArtistas = document.querySelectorAll(".artistas .dot");
 const btnPrevArtistas = document.querySelector(".artistas .prevBtn");
 const btnNextArtistas = document.querySelector(".artistas .nextBtn");
 
 //deStack Artistas.
-deStack(slidesImagesArtistas, slidesBoxesArtistas);
+deStack(slidesImagesArtistas, slidesBoxesArtistas, slidesBoxesArtistasResp);
 
 //Funcionamiento sliders Artistas.
 funcionamientoCompletoSliders(
@@ -128,7 +160,8 @@ funcionamientoCompletoSliders(
   slidesBoxesArtistas,
   dotsArtistas,
   btnPrevArtistas,
-  btnNextArtistas
+  btnNextArtistas,
+  slidesBoxesArtistasResp
 );
 
 //=============DESTACADO
@@ -229,10 +262,10 @@ const dotsDestacado = document.querySelectorAll(".destacado .dot");
 const btnPrevDestacado = document.querySelector(".destacado .prevBtn");
 const btnNextDestacado = document.querySelector(".destacado .nextBtn");
 
-//deStack Artistas.
+//deStack Destacado.
 deStack(slidesImagesDestacado, slidesBoxesDestacado);
 
-//Funcionamiento sliders Artistas.
+//Funcionamiento sliders Destacado.
 funcionamientoCompletoSlidersDestacado(
   slidesImagesDestacado,
   dotsDestacado,
@@ -246,12 +279,15 @@ const slidesImagesNoticias = document.querySelectorAll(".noticias .slide");
 const slidesBoxesNoticias = document.querySelectorAll(
   ".noticias .bottom-right__info-box"
 );
+const slidesBoxesNoticiasResp = document.querySelectorAll(
+  ".noticias .bottom-right__info-box.portrait"
+);
 const dotsNoticias = document.querySelectorAll(".noticias .dot");
 const btnPrevNoticias = document.querySelector(".noticias .prevBtn");
 const btnNextNoticias = document.querySelector(".noticias .nextBtn");
 
 //deStack Noticias.
-deStack(slidesImagesNoticias, slidesBoxesNoticias);
+deStack(slidesImagesNoticias, slidesBoxesNoticias, slidesBoxesNoticiasResp);
 
 //Funcionamiento sliders Noticias.
 funcionamientoCompletoSliders(
@@ -259,7 +295,8 @@ funcionamientoCompletoSliders(
   slidesBoxesNoticias,
   dotsNoticias,
   btnPrevNoticias,
-  btnNextNoticias
+  btnNextNoticias,
+  slidesBoxesNoticiasResp
 );
 
 //=============RELEASES
@@ -268,12 +305,15 @@ const slidesImagesReleases = document.querySelectorAll(".releases .slide");
 const slidesBoxesReleases = document.querySelectorAll(
   ".releases .bottom-right__info-box"
 );
+const slidesBoxesReleasesResp = document.querySelectorAll(
+  ".releases .bottom-right__info-box.portrait"
+);
 const dotsReleases = document.querySelectorAll(".releases .dot");
 const btnPrevReleases = document.querySelector(".releases .prevBtn");
 const btnNextReleases = document.querySelector(".releases .nextBtn");
 
 //deStack Releases.
-deStack(slidesImagesReleases, slidesBoxesReleases);
+deStack(slidesImagesReleases, slidesBoxesReleases, slidesBoxesReleasesResp);
 
 //Funcionamiento sliders Releases.
 funcionamientoCompletoSliders(
@@ -281,7 +321,8 @@ funcionamientoCompletoSliders(
   slidesBoxesReleases,
   dotsReleases,
   btnPrevReleases,
-  btnNextReleases
+  btnNextReleases,
+  slidesBoxesReleasesResp
 );
 
 //=============NOSOTROS
@@ -290,12 +331,15 @@ const slidesImagesNosotros = document.querySelectorAll(".nosotros .slide");
 const slidesBoxesNosotros = document.querySelectorAll(
   ".nosotros .bottom-right__info-box"
 );
+const slidesBoxesNosotrosResp = document.querySelectorAll(
+  ".nosotros .bottom-right__info-box.portrait"
+);
 const dotsNosotros = document.querySelectorAll(".nosotros .dot");
 const btnPrevNosotros = document.querySelector(".nosotros .prevBtn");
 const btnNextNosotros = document.querySelector(".nosotros .nextBtn");
 
 //deStack Nosotros.
-deStack(slidesImagesNosotros, slidesBoxesNosotros);
+deStack(slidesImagesNosotros, slidesBoxesNosotros, slidesBoxesNosotrosResp);
 
 //Funcionamiento sliders Nosotros.
 funcionamientoCompletoSliders(
@@ -303,7 +347,8 @@ funcionamientoCompletoSliders(
   slidesBoxesNosotros,
   dotsNosotros,
   btnPrevNosotros,
-  btnNextNosotros
+  btnNextNosotros,
+  slidesBoxesNosotrosResp
 );
 
 //=============CONTACTO
@@ -312,12 +357,15 @@ const slidesImagesContacto = document.querySelectorAll(".contacto .slide");
 const slidesBoxesContacto = document.querySelectorAll(
   ".contacto .bottom-right__info-box"
 );
+const slidesBoxesContactoResp = document.querySelectorAll(
+  ".contacto .bottom-right__info-box.portrait"
+);
 const dotsContacto = document.querySelectorAll(".contacto .dot");
 const btnPrevContacto = document.querySelector(".contacto .prevBtn");
 const btnNextContacto = document.querySelector(".contacto .nextBtn");
 
 //deStack Contacto.
-deStack(slidesImagesContacto, slidesBoxesContacto);
+deStack(slidesImagesContacto, slidesBoxesContacto, slidesBoxesContactoResp);
 
 //Funcionamiento sliders Contacto.
 funcionamientoCompletoSliders(
@@ -325,5 +373,6 @@ funcionamientoCompletoSliders(
   slidesBoxesContacto,
   dotsContacto,
   btnPrevContacto,
-  btnNextContacto
+  btnNextContacto,
+  slidesBoxesContactoResp
 );
