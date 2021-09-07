@@ -1,3 +1,5 @@
+import { artistas } from "./contenido.js";
+
 //=============Función para desapilar las slides de los sliders.
 function deStack(images, boxes, boxesResponsive) {
   function deStackImages(slideImagen) {
@@ -91,6 +93,34 @@ function funcionamientoCompletoSliders(
   }
 
   //Las main function (lo que se ejecuta al dar click).
+  function displayArtistaSeleccionado(e) {
+    let artistaSeleccionado = artistas[e.currentTarget.dataset.orden - 1];
+    document.querySelector(".artist-name").textContent =
+      artistaSeleccionado.nombre;
+    document.querySelector(
+      ".section__main.destacado .genero__texto"
+    ).textContent = artistaSeleccionado.genero;
+    document.querySelector(
+      ".section__main.destacado .section__description"
+    ).textContent = artistaSeleccionado.descripcion;
+
+    document.querySelector(
+      ".section__bottom-right.destacado .subtitle__number"
+    ).textContent = `0${artistaSeleccionado.id}`;
+    document.querySelector(
+      ".section__bottom-right.destacado .subtitle__name"
+    ).textContent = artistaSeleccionado.nombre;
+    document.querySelector(
+      ".section__bottom-right.destacado .box-description"
+    ).textContent = artistaSeleccionado.descripcion;
+
+    //TODO: MIRAR SI SE PUEDE "MODULARIZAR" MÁS EL CÓDIGO.
+    //TODO: FALTA QUE ESTA FUNCIÓN CAMBIE LAS FOTOS A LAS DEL ARTISTAS SELECCIONADO: CREO QUE TOCA RE-RENDERIZAR EL SLIDER Y ASIGNAR LISTENERS.
+    //TODO: LA FUNCIÓN DE ABAJO -SCROLLINTOVIE- DEBE APLICARSE SOLO A LOS BOXES DE ARTISTAS (EN ESTE MOMENTO LO HACE CON TODOS). EL CONSOLE LOG ES SOLO DE PRUEBA.
+    console.log(artistaSeleccionado);
+    document.querySelector(".section.destacado").scrollIntoView(true);
+  }
+
   function clickDotsOBoxes(e) {
     contadorBoxesDots(e);
     estadoActivoBoxesDots(boxes, dots, boxesResp);
@@ -98,6 +128,7 @@ function funcionamientoCompletoSliders(
     moverSlides(images);
     moverSlides(boxes);
     moverSlides(boxesResp);
+    displayArtistaSeleccionado(e);
   }
 
   function clickBotonPrev() {

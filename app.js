@@ -25,6 +25,8 @@ let noticiasPosition =
   document.querySelector(".section.noticias").offsetTop - espacioDeTransicion;
 let releasePosition =
   document.querySelector(".section.releases").offsetTop - espacioDeTransicion;
+let videosPosition =
+  document.querySelector(".section.videos").offsetTop - espacioDeTransicion;
 let nosotrosPosition =
   document.querySelector(".section.nosotros").offsetTop - espacioDeTransicion;
 
@@ -37,8 +39,10 @@ function colorNav() {
     colorHeaderNavInicio.backgroundColor = "var(--color-1)";
   } else if (posicion >= noticiasPosition && posicion < releasePosition) {
     colorHeaderNavInicio.backgroundColor = "var(--color-2)";
-  } else if (posicion >= releasePosition && posicion < nosotrosPosition) {
+  } else if (posicion >= releasePosition && posicion < videosPosition) {
     colorHeaderNavInicio.backgroundColor = "var(--color-3)";
+  } else if (posicion >= videosPosition && posicion < nosotrosPosition) {
+    colorHeaderNavInicio.backgroundColor = "var(--color-5)";
   } else {
     colorHeaderNavInicio.backgroundColor = "var(--color-4)";
   }

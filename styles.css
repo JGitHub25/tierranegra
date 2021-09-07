@@ -62,6 +62,7 @@ Variables
   --color-2: #9f48d9;
   --color-3: #48d995;
   --color-4: #d94e4e;
+  --color-5: #48abd9;
 
   --gris-texto: #818181;
 
@@ -355,6 +356,10 @@ p.box-description {
   color: var(--color-3);
 }
 
+.nav-pages__links.texto.videos:hover {
+  color: var(--color-5);
+}
+
 .nav-pages__links.texto.nosotros:hover {
   color: var(--color-4);
 }
@@ -471,6 +476,10 @@ p.box-description {
   background-color: var(--color-3);
 }
 
+.side-navigation__dot.videos {
+  background-color: var(--color-5);
+}
+
 .side-navigation__dot.nosotros {
   background-color: var(--color-4);
 }
@@ -541,6 +550,9 @@ p.box-description {
 }
 .dot-releases {
   background-color: var(--color-3);
+}
+.dot-videos {
+  background-color: var(--color-5);
 }
 .dot-nosotros {
   background-color: var(--color-4);
@@ -670,6 +682,12 @@ p.box-description {
 .releases .prevBtn:hover,
 .releases .nextBtn:hover {
   background-color: var(--color-3);
+}
+
+/*================================VIDEOS================================*/
+
+.videos .section__title {
+  color: var(--color-5);
 }
 
 /*================================NOSOTROS y CONTACTO================================*/
@@ -829,6 +847,7 @@ p.box-description {
   .dots-inicio-container {
     align-items: center;
     width: 40%;
+    margin-top: 15vh;
   }
 
   .dot-home {
